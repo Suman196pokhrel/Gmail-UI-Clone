@@ -27,7 +27,7 @@ const Header = () => {
 
         <Typography
           variant='h5'
-          textColor='secondary'
+          color='secondary'
           ml={"5px"}
         >Gmail</Typography>
 

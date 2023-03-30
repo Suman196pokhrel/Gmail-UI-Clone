@@ -1,0 +1,45 @@
+.sidebarOption{
+    display: flex;
+    align-items: center;
+    height: 33px;
+    padding: 0 10px 0 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    color: rgb(76, 76, 76);
+}
+
+.sidebarOption > .MuiTypography-root {
+    flex: 1;
+}
+
+.sidebarOption > p{
+    display: none;
+    font-weight: 300;
+    margin-left: 10px;
+    
+}
+
+.sidebarOption:hover > p {
+    display:inline;
+}
+
+.sidebar__active > p {
+    display: inline !important;
+}
+
+.sidebarOption:hover ,
+.sidebarOption:hover > p,
+.sidebarOption:hover >  .MuiTypography-root{
+    background-color: rgb(187, 223, 255) !important;
+    font-weight: 700;
+    color: black;
+}
+
+.sidebar__active{
+
+}
+
+/* .sidebarOption:hover > .MuiSvgIcon-root{
+    color: black;
+} */
