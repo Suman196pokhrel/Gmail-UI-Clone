@@ -1,6 +1,7 @@
 import { CheckBox } from '@mui/icons-material'
 import React from 'react'
 import "./EmailList.css"
+import EmailRow from '../EmailRow/EmailRow';
 import Section from '../Section/Section';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
@@ -50,6 +51,22 @@ const EmailList = () => {
         <Section Icon={PeopleAltOutlinedIcon} color='rgb(12, 93, 254)' title='Socials' selected={false}/>
 
       </div>
+
+      <div className="emailList__list">
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+        <EmailRow  title={`Google Developers Team`} subject={`Password Reset Requested`} description={`Aasdasdad aldalksdjld oa d jaodjaoi dpa da pp  adpaidjpaidjlak`} time={`10pm`} />
+      
+      
+      </div>
+
     </div>
   )
 }
