@@ -1,0 +1,23 @@
+.section{
+    display: flex;
+    align-items: center;
+    padding: 7px 150px 10px 0;
+    cursor: pointer;   
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+
+.section:hover {
+    background-color: rgba(244, 244, 244, 0.838);
+    
+}
+
+.section > p{
+    font-weight: 500;
+}
+
+.selected{
+    border-bottom: 4px solid rgb(10, 107, 234);
+    
+}
