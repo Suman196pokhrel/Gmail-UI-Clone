@@ -4,12 +4,14 @@ import { IconButton } from '@mui/material'
 import { CheckBox } from '@mui/icons-material'
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
+import { useHistory } from 'react-router-dom';
 
 
 const EmailRow = ({ title, subject, description, time }) => {
+  const history = useHistory()
   const descLimit = 120
   return (
-    <div className='emailRow'>
+    <div onClick={()=> history.push("/mail")} className='emailRow'>
       <div className="emailRow__options">
         <IconButton>
           <CheckBox />
