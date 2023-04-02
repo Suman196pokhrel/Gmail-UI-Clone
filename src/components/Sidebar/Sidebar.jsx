@@ -16,10 +16,16 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import DuoOutlinedIcon from '@mui/icons-material/DuoOutlined';
 import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
 
+import { useDispatch } from 'react-redux';
+import { openSendMessage, closeSendMessage} from "../../features/mailSlice"
+
 const Sidebar = () => {
+    const dispatch = useDispatch()
+
   return (
     <div className='sidebar'>
         <Button
+        onClick={()=>dispatch(openSendMessage())}
         className='sidebar__compose'
         startIcon={<ModeEditOutlineOutlinedIcon />}
         >
