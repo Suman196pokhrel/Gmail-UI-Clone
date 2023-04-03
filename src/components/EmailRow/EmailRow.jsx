@@ -10,6 +10,9 @@ import { useHistory } from 'react-router-dom';
 const EmailRow = ({ title, subject, description, time }) => {
   const history = useHistory()
   const descLimit = 120
+  const timeReadable = new Date(time).toLocaleString()
+
+
   return (
     <div onClick={()=> history.push("/mail")} className='emailRow'>
       <div className="emailRow__options">
@@ -40,7 +43,7 @@ const EmailRow = ({ title, subject, description, time }) => {
 
 
       <p className="emailRow__time">
-        {time}
+        {timeReadable}
       </p>
     </div>
   )

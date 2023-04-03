@@ -37,7 +37,7 @@ const SendMail = () => {
         }
         
         // Adding to an existing Collection (useAdd doc if you dont want to generate unique ID youself everytime you adda document)
-        addDoc(collection(db,"emails"), myData)
+        addDoc(collection(db,"sentEmails"), myData)
         .then(()=>{
             console.log("Document sucessfully written!")
         })
@@ -70,8 +70,7 @@ const SendMail = () => {
                 type="text" 
                 placeholder='Subject :' 
                 {... register("subject",{required:true})}/>
-                <input 
-                type="text" 
+                <textarea
                 placeholder='' 
                 className='sendMail__message' 
                 {... register("message",{required:true})}/>

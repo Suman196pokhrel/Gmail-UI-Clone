@@ -63,3 +63,12 @@
 .send_options_btns{
     color: rgb(46, 46, 46) !important;
 }
+
+form > textarea{
+    border:0px;
+
+}
+
+form > textarea:focus{
+    outline: none;
+}
