@@ -15,10 +15,15 @@ import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import { useHistory } from 'react-router-dom';
 import LabelImportantOutlinedIcon from '@mui/icons-material/LabelImportantOutlined';
+import { selectOpenMail } from '../../features/mailSlice';
+import { useSelector } from 'react-redux';
 
 
 const Mail = () => {
 
+
+  const selectedMail = useSelector(selectOpenMail)
+  console.log("selected mail => ", selectedMail)
   const history = useHistory()
   const iconSize = "small"
 
@@ -71,15 +76,15 @@ const Mail = () => {
       <div className="mail__body">
 
         <div className="mail__bodyHeader">
-          <h2>Subject </h2>
+          <h2>{selectedMail?.subject} </h2>
 
           <LabelImportantOutlinedIcon className='mail__important'/>
-          <p>Title</p>
-          <p className='mail__time'>10pm</p>
+          <p>{selectedMail?.title}</p>
+          <p className='mail__time'>{selectedMail?.time}</p>
         </div>
 
         <div className="mail__message">
-          <p>This is a message</p>
+          <p>{selectedMail?.description}</p>
         </div>
       </div>
     </div>
