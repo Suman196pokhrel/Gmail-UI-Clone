@@ -19,18 +19,8 @@ import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined
 import {useForm} from 'react-hook-form'
 import { useDispatch } from 'react-redux';
 import { closeSendMessage } from '../../features/mailSlice';
-
-// Formik Utils 
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-// import * as Yup from 'yup';
-
-
-// Validation Schema
-// const validationSchema = Yup.object.shape({
-//     emailTo: Yup.string().email("Invalid email").required("Needs atleast one receiver."),
-//     subject: Yup.string().required("Cannot be Empty"),
-//     message: Yup.string().required("Message cannot be empty")
-// })
+import {db} from '../../utils/firebaseConfig'
+import { serverTimestamp, doc, setDoc , addDoc, collection} from 'firebase/firestore';
 
 
 const SendMail = () => {
@@ -38,11 +28,28 @@ const SendMail = () => {
     const {register, handleSubmit, watch, errors} = useForm()
     const dispatch = useDispatch()
     const onSubmit =(data)=>{
-        console.log(data)
+       
+        const myData = {
+            message:data.message,
+            subject: data.subject,
+            toEmail: data.toEmail,
+            timeStamp:serverTimestamp()
+        }
+        
+        // Adding to an existing Collection (useAdd doc if you dont want to generate unique ID youself everytime you adda document)
+        addDoc(collection(db,"emails"), myData)
+        .then(()=>{
+            console.log("Document sucessfully written!")
+        })
+        .catch((error)=>{
+            console.log("Erroe writing document", error)
+        })
+        dispatch(closeSendMessage())
     }
 
     return (
         <div className='sendMail'>
+
             <div className="sendMail__header">
                 <h3>New Message</h3>
                 <IconButton onClick={()=> dispatch(closeSendMessage())}>
@@ -57,7 +64,7 @@ const SendMail = () => {
                 <input 
                 type="text" 
                 placeholder='To ' 
-                {... register("emailTo", {required:true})}/>
+                {... register("toEmail", {required:true})}/>
 
                 <input 
                 type="text" 
@@ -108,4 +115,4 @@ const SendMail = () => {
     )
 }
 
-export default SendMail
+export default SendMail;
