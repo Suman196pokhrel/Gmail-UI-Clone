@@ -15,6 +15,7 @@
 
 .section > p{
     font-weight: 500;
+    padding-left: 15px;
 }
 
 .selected{

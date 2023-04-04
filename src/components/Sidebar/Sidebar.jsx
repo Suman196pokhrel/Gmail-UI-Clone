@@ -25,6 +25,7 @@ const Sidebar = () => {
   return (
     <div className='sidebar'>
         <Button
+        sx={{textTransform:"none"}}
         onClick={()=>dispatch(openSendMessage())}
         className='sidebar__compose'
         startIcon={<ModeEditOutlineOutlinedIcon />}
@@ -32,13 +33,13 @@ const Sidebar = () => {
             Compose
         </Button>
 
-        <SidebarOption selected={true} Icon={<InboxIcon />} title="Inbox" number={32}/>
-        <SidebarOption  Icon={<StarBorderPurple500OutlinedIcon />} title="Starred" number={32}/>
-        <SidebarOption  Icon={<SendOutlinedIcon />} title="sent" number={32}/>
-        <SidebarOption  Icon={<SnoozeOutlinedIcon />} title="Snooze" number={32}/>
-        <SidebarOption  Icon={<InsertDriveFileOutlinedIcon />} title="Drafts" number={32}/>
-        <SidebarOption  Icon={<HorizontalSplitIcon />} title="Lists" number={32}/>
-        <SidebarOption  Icon={<ExpandMoreOutlinedIcon />} title="More" number={32}/>
+        <SidebarOption   selected={true} Icon={<InboxIcon  fontSize='small' />} title="Inbox" number={32}/>
+        <SidebarOption    Icon={<StarBorderPurple500OutlinedIcon  fontSize='small' />} title="Starred" number={32}/>
+        <SidebarOption    Icon={<SnoozeOutlinedIcon  fontSize='small' />} title="Snooze" number={32}/>
+        <SidebarOption    Icon={<SendOutlinedIcon  fontSize='small' />} title="sent" number={32}/>
+        <SidebarOption    Icon={<InsertDriveFileOutlinedIcon fontSize='small'  />} title="Drafts" number={32}/>
+        <SidebarOption    Icon={<HorizontalSplitIcon  fontSize='small' />} title="Lists" number={32}/>
+        <SidebarOption    Icon={<ExpandMoreOutlinedIcon  fontSize='small' />} title="More" number={32}/>
 
         <div className="sidebar__footer">
             <div className="sidebar__footerIcons">

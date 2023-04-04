@@ -1,4 +1,4 @@
-import { CheckBox } from '@mui/icons-material'
+import Checkbox from '@mui/material/Checkbox';
 import React, { useEffect, useState } from 'react'
 import "./EmailList.css"
 import EmailRow from '../EmailRow/EmailRow';
@@ -25,6 +25,7 @@ const EmailList = () => {
   const history = useHistory()
   const currentPath = history.location.pathname
   const selectedPage = useSelector(selectPage)
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   // const pageSelected = useSelector()
 
   useEffect(() => {
@@ -72,26 +73,26 @@ const EmailList = () => {
 
         <div className="emailList__settingsLeft">
           <IconButton>
-            <CheckBox />
+          <Checkbox {...label} size='small'/>
             <ArrowDropDownIcon />
           </IconButton>
 
           <IconButton>
-            <RefreshOutlinedIcon />
+            <RefreshOutlinedIcon  fontSize='small'/>
           </IconButton>
 
           <IconButton>
-            <MoreVertOutlinedIcon />
+            <MoreVertOutlinedIcon fontSize='small' />
           </IconButton>
 
         </div>
 
         <div className="emailList__settingsRight">
           <IconButton>
-            <KeyboardArrowLeftOutlinedIcon />
+            <KeyboardArrowLeftOutlinedIcon fontSize='small'/>
           </IconButton>
           <IconButton>
-            <ChevronRightOutlinedIcon />
+            <ChevronRightOutlinedIcon fontSize='small'/>
           </IconButton>
         </div>
       </div>

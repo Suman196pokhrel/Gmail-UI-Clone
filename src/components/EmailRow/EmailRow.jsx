@@ -1,7 +1,7 @@
 import React from 'react'
 import "./EmailRow.css"
 import { IconButton } from '@mui/material'
-import { CheckBox } from '@mui/icons-material'
+import Checkbox from '@mui/material/Checkbox';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import { useHistory } from 'react-router-dom';
@@ -22,20 +22,20 @@ const EmailRow = ({ title, subject, description, time }) => {
 
 
   return (
-    <div onClick={openMail} className='emailRow'>
+    <div className='emailRow'>
       <div className="emailRow__options">
         <IconButton>
-          <CheckBox />
+        <Checkbox  size='small'/>
         </IconButton>
         <IconButton>
-          <StarBorderPurple500OutlinedIcon />
+          <StarBorderPurple500OutlinedIcon fontSize='small'/>
         </IconButton>
         <IconButton>
-          <LabelOutlinedIcon />
+          <LabelOutlinedIcon fontSize='small'/>
         </IconButton>
       </div>
 
-      <h3 className="emailRow__title">
+      <h3  onClick={openMail} className="emailRow__title">
         {title}
       </h3>
 

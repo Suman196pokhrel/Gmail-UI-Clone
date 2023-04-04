@@ -27,15 +27,13 @@ const SidebarOption = ({selected,Icon, title, number}) => {
 
   return (
     <div className={`sidebarOption ${selected && "sidebar__active"}`} onClick={title=='sent'?(openSent):(openInbox)}>
-        <IconButton color={`default`}>
+        <IconButton color={`default`} sx={{}}>
             {Icon}
         </IconButton>
         
-        <Typography variant='body'sx={{
-            marginLeft:1
-        }}>
+        <div style={{fontSize:"15px", flex:1}}>
             {title}
-        </Typography>
+        </div>
 
         <p>
             {number}

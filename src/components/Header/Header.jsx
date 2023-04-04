@@ -49,7 +49,7 @@ const Header = () => {
 
       <div className="header__left">
         <IconButton>
-          <MenuIcon />
+          <MenuIcon fontSize='medium'/>
         </IconButton>
 
         <img
@@ -57,8 +57,12 @@ const Header = () => {
           alt="" />
 
         <Typography
-          variant='h5'
-          color='secondary'
+          
+          sx={{
+            color:"rgb(92, 92, 92)",
+            fontSize:"24px"
+
+          }}
           ml={"5px"}
         >Gmail</Typography>
 
