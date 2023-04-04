@@ -111,7 +111,7 @@ const EmailList = () => {
       ) : (<div className="emailList__list">
         {emailList.map((email, ind) => {
 
-          return <EmailRow key={ind} title={email.fromEmail} subject={email.subject} description={email.message} time={new Date(email.timeStamp?.seconds * 1000).toUTCString()} />
+          return <EmailRow key={ind} title={email.fromEmail || email.toEmail} subject={email.subject} description={email.message} time={new Date(email.timeStamp?.seconds * 1000).toUTCString()} />
 
         })}
 

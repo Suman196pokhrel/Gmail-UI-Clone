@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Mail.css"
-import { IconButton } from '@mui/material'
+import { Avatar, IconButton } from '@mui/material'
 import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
@@ -17,6 +17,7 @@ import { useHistory } from 'react-router-dom';
 import LabelImportantOutlinedIcon from '@mui/icons-material/LabelImportantOutlined';
 import { selectOpenMail } from '../../features/mailSlice';
 import { useSelector } from 'react-redux';
+import { selectUser } from '../../features/userSlice';
 
 
 const Mail = () => {
@@ -26,13 +27,14 @@ const Mail = () => {
   console.log("selected mail => ", selectedMail)
   const history = useHistory()
   const iconSize = "small"
+  const user = useSelector(selectUser)
 
   return (
     <div className='mail'>
       <div className="mail__tools">
 
         <div className="mail__toolsLeft">
-          <IconButton onClick={() => history.push("/")}>
+          <IconButton onClick={() => history.goBack()}>
             <KeyboardBackspaceOutlinedIcon fontSize={iconSize} />
           </IconButton>
           <IconButton>
@@ -78,10 +80,31 @@ const Mail = () => {
         <div className="mail__bodyHeader">
           <h2>{selectedMail?.subject} </h2>
 
-          <LabelImportantOutlinedIcon className='mail__important'/>
-          <p>{selectedMail?.title}</p>
-          <p className='mail__time'>{selectedMail?.time}</p>
+          <LabelImportantOutlinedIcon className='mail__important' />
+
+
         </div>
+
+
+        <div className="mail__userInfo">
+
+          <div className="mail__userInfoLeft">
+            <Avatar src={user.photoURL} sx={{ marginRight: "20px" }} />
+            <div className="userInfo__right">
+              <div className="name__Section">
+                <p className='userName'>{user.displayName}</p>
+                <p>  {`<${user.email}>`}</p>
+              </div>
+
+              <p className='userEmail'>.to {`<${selectedMail?.title}>`}</p>
+            </div>
+
+          </div>
+          <div className="mail__userInfoRight">
+            <p>{selectedMail?.time}</p>
+          </div>
+        </div>
+
 
         <div className="mail__message">
           <p>{selectedMail?.description}</p>

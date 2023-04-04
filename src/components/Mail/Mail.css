@@ -47,7 +47,7 @@
 }
 
 .mail__bodyHeader > h2{
-    font-weight: 400;
+    font-weight: normal !important;
     margin-right: 20px;
 }
 
@@ -59,6 +59,9 @@
     padding: 10px;
     margin-right: 20px;
     overflow-wrap: break-word;
+    font-size: 15px;
+    font-weight: lighter;
+    padding-top: 50px;
 }
 
 .mail__time {
@@ -67,4 +70,53 @@
     font-size: 12px;
     right: 0;
     color: gray;
+}
+
+.mail__userInfo{
+    display: flex;
+    align-items:start;
+    justify-content: space-between;
+
+}
+
+.mail__userInfoLeft{
+    display: flex;
+    align-items: center;
+
+    
+}
+
+.userInfo__right{
+    display: flex;
+    flex-direction: column;
+
+    
+    
+
+}
+
+.userName{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px;
+    padding-right: 5px;
+}
+
+.userEmail{
+    font-size: 13px;
+    color: rgb(78, 78, 78);
+    padding-left: 10px;
+}
+
+.name__Section{
+    display: flex;
+    font-size: 14px;
+    color: rgb(78, 78, 78);
+}
+
+.mail__userInfoRight{
+    font-size: 12px;
+    color: rgb(78, 78, 78);
+
+
 }
