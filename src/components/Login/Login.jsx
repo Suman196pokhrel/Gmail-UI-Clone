@@ -17,10 +17,11 @@ const Login = () => {
          const token = credential.accessToken
      
          const user = result.user;
+        //  console.log(user)
          dispatch(login({
              displayName: user.displayName,
              email: user.email,
-             photoUrl: user.photoUrl
+             photoURL: user.photoURL
          }))
      
      
@@ -38,7 +39,7 @@ const Login = () => {
         <div className="login__container">
             <img src="https://static.dezeen.com/uploads/2020/10/gmail-google-logo-rebrand-workspace-design_dezeen_2364_col_0.jpg" 
             alt="" />
-            <Button onClick={signIn}>Login</Button>
+            <Button variant='contained' onClick={signIn}>Login</Button>
         </div>
     </div>
   )

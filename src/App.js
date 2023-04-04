@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -11,16 +11,29 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectSendMessageIsOpen } from "./features/mailSlice"
-import { selectUser } from "./features/userSlice"
+import { login, selectUser } from "./features/userSlice"
 import Login from './components/Login/Login';
+import { auth } from './utils/firebaseConfig';
 
 
 function App() {
 
   const sendMessageIsOpen = useSelector(selectSendMessageIsOpen)
   const user = useSelector(selectUser)
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    auth.onAuthStateChanged(user => {
+      // the user is logged in
+      dispatch(login({
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL
+    }))
+    })
+  },[])
 
   return (
     <Router>

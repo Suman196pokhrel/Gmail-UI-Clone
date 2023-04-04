@@ -32,8 +32,8 @@ const EmailList = () => {
       .then((documents) => {
         setEmailList(documents)
         setIsLoading(false)
-        console.log("Documents fetched !!")
-        console.log(documents)
+        // console.log("Documents fetched !!")
+        // console.log(documents)
       })
       .catch((error) => {
         console.log("error getting documents ", error)
