@@ -1,9 +1,8 @@
-
-# dependencies
 /node_modules
 /.pnp
 .pnp.js
-firebaseConfig.js
+src/utils/firebaseConfig.js
+
 
 
 /coverage
