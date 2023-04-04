@@ -1,4 +1,5 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+## Gmail UI Clone
+[Click here](https://clone-bcc5f.web.app/) to view the live Project
 
 # dependencies
 /node_modules
@@ -10,6 +11,7 @@
 
 # production
 /build
+/src/utils/firebaseConfig.js
 
 # misc
 .DS_Store
@@ -21,5 +23,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-src/utils/firebaseConfig.js
