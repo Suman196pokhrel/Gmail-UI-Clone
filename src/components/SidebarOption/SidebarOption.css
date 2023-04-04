@@ -37,6 +37,9 @@
 }
 
 .sidebar__active{
+    background-color: rgb(187, 223, 255) !important;
+    font-weight: 700;
+    color: black;
 
 }
 

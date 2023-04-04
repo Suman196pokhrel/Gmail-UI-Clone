@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Sidebar.css"
 import SidebarOption from '../SidebarOption/SidebarOption';
 
@@ -21,6 +21,8 @@ import { openSendMessage, closeSendMessage} from "../../features/mailSlice"
 
 const Sidebar = () => {
     const dispatch = useDispatch()
+    const [activeLink, setActiveLink] = useState("")
+    
 
   return (
     <div className='sidebar'>
@@ -33,10 +35,10 @@ const Sidebar = () => {
             Compose
         </Button>
 
-        <SidebarOption   selected={true} Icon={<InboxIcon  fontSize='small' />} title="Inbox" number={32}/>
+        <SidebarOption  activeLink={activeLink} setActiveLink={setActiveLink} Icon={<InboxIcon  fontSize='small' />} title="Inbox" number={32}/>
         <SidebarOption    Icon={<StarBorderPurple500OutlinedIcon  fontSize='small' />} title="Starred" number={32}/>
         <SidebarOption    Icon={<SnoozeOutlinedIcon  fontSize='small' />} title="Snooze" number={32}/>
-        <SidebarOption    Icon={<SendOutlinedIcon  fontSize='small' />} title="sent" number={32}/>
+        <SidebarOption   activeLink={activeLink} setActiveLink={setActiveLink} Icon={<SendOutlinedIcon  fontSize='small' />} title="sent" number={32}/>
         <SidebarOption    Icon={<InsertDriveFileOutlinedIcon fontSize='small'  />} title="Drafts" number={32}/>
         <SidebarOption    Icon={<HorizontalSplitIcon  fontSize='small' />} title="Lists" number={32}/>
         <SidebarOption    Icon={<ExpandMoreOutlinedIcon  fontSize='small' />} title="More" number={32}/>
