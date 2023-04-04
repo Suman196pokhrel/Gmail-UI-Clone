@@ -12,41 +12,60 @@ import { IconButton } from '@mui/material';
 import InboxIcon from '@mui/icons-material/Inbox';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-import { Timestamp, collection, getDoc, getDocs } from "firebase/firestore"
+import { Timestamp, collection, doc, getDoc, getDocs } from "firebase/firestore"
 import { db } from '../../utils/firebaseConfig';
+import { selectList, selectPage, setList } from '../../features/emailListSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const EmailList = () => {
   const [emailList, setEmailList] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const currentPath = history.location.pathname
+  const selectedPage = useSelector(selectPage)
+  // const pageSelected = useSelector()
 
   useEffect(() => {
+    setIsLoading(true)
     // Custom Function to get Docs 
     const getAllDocuments = async (collectionName) => {
       const querySnapShot = await getDocs(collection(db, collectionName));
       const documents = querySnapShot.docs.map((doc) => doc.data());
       return documents
     }
-    const collectionName = "inboxEmails";
+    const collectionName = currentPath == "/" ? "inboxEmails" : "sentEmails";
 
     getAllDocuments(collectionName)
       .then((documents) => {
-        setEmailList(documents)
+        const data = documents.map((email) => {
+          return {
+            title: email.title,
+            description: email.message,
+            subject: email.subject,
+            timeStamp: new Date(email.timeStamp?.seconds * 1000).toUTCString()
+          }
+        })
         setIsLoading(false)
+        dispatch(setList(data))
+        setEmailList(documents)
+        
         // console.log("Documents fetched !!")
-        // console.log(documents)
+
       })
       .catch((error) => {
         console.log("error getting documents ", error)
       })
 
 
-  }, [])
+  }, [selectedPage])
 
-  return (<> {isLoading ? (
-    <div className="loadingAnimation">
-      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5d79bf38627007.5809c7eab2bee.gif" alt="Gmail logo animating" />
-    </div>
-  ) : (
+
+
+
+
+  return (
     <div className='emailList'>
 
       <div className="emailList__settings">
@@ -84,22 +103,25 @@ const EmailList = () => {
 
       </div>
 
-      <div className="emailList__list">
+      {isLoading ? (
+        <div className="loadingAnimation">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5d79bf38627007.5809c7eab2bee.gif" alt="Gmail logo animating" />
+        </div>
+      ) : (<div className="emailList__list">
         {emailList.map((email, ind) => {
-          
-         return <EmailRow key={ind} title={email.fromEmail} subject={email.subject} description={email.message} time={new Date(email.timeStamp?.seconds *1000).toUTCString()} />
+
+          return <EmailRow key={ind} title={email.fromEmail} subject={email.subject} description={email.message} time={new Date(email.timeStamp?.seconds * 1000).toUTCString()} />
 
         })}
 
 
 
-      </div>
+      </div>)}
+
 
     </div>
-  )}
-
-  </>
   )
 }
+
 
 export default EmailList

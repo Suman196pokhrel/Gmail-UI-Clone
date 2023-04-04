@@ -34,7 +34,7 @@ const Sidebar = () => {
 
         <SidebarOption selected={true} Icon={<InboxIcon />} title="Inbox" number={32}/>
         <SidebarOption  Icon={<StarBorderPurple500OutlinedIcon />} title="Starred" number={32}/>
-        <SidebarOption  Icon={<SendOutlinedIcon />} title="Sent" number={32}/>
+        <SidebarOption  Icon={<SendOutlinedIcon />} title="sent" number={32}/>
         <SidebarOption  Icon={<SnoozeOutlinedIcon />} title="Snooze" number={32}/>
         <SidebarOption  Icon={<InsertDriveFileOutlinedIcon />} title="Drafts" number={32}/>
         <SidebarOption  Icon={<HorizontalSplitIcon />} title="Lists" number={32}/>
